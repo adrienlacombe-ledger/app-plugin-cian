@@ -85,7 +85,8 @@ jobs:
 
       - name: Build
         run: |
-          make DEBUG=1 BOLOS_SDK=${{ matrix.sdk }} -j
+          # make DEBUG=1 BOLOS_SDK=${{ matrix.sdk }} -j
+          make -C . -j DEBUG=1 CAL_TEST_KEY=1 BOLOS_SDK=${{ matrix.sdk }}
 
       - name: Rename binary
         run: |
